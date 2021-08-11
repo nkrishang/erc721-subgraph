@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: CoolCats
@@ -13,12 +13,12 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
-      entities:        
-        - Transfer        
+      entities:
+        - Transfer
       abis:
         - name: CoolCats
-          file: ./abis/CoolCats.json
+          file: CoolCats\abis\CoolCats.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/mapping.ts
+      file: CoolCats\CoolCats.wasm
