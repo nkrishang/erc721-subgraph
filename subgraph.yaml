@@ -14,7 +14,8 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:        
-        - Transfer        
+        - Account
+        - NFT        
       abis:
         - name: CoolCats
           file: ./abis/CoolCats.json

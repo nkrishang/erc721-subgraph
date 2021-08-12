@@ -15,12 +15,15 @@ export function handleTransfer(event: Transfer): void {
 
   if(receiverAccount == null) {
     receiverAccount = new Account(recevierAccountId)
-    receiverAccount.address = event.params.from
+    receiverAccount.address = event.params.to
+
+    receiverAccount.save()
   }
 
   // Create `NFT` if it is being minted.
   let nftId = event.params.tokenId.toString()
   let nft = NFT.load(nftId)
+
   if(nft == null) {
     nft = new NFT(nftId)
     nft.tokenId = event.params.tokenId
